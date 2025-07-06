@@ -11,15 +11,21 @@
         "extensions": ["ms-toolsai.jupyter", "ms-python.python"]
       }
     },
+"features": {
+    "ghcr.io/devcontainers/features/python:1": {
+        "toolsToInstall":"jupyterlab-myst,pixi-kernel",
+        "installJupyterlab":true
+    }
+},
     // pixi global install puts binaries in ~/.pixi/bin
-    "remoteEnv": {
-        "PATH": "${containerEnv:PATH}:/home/vscode/.pixi/bin"
-    },
+    // "remoteEnv": {
+    //    "PATH": "${containerEnv:PATH}:/home/vscode/.pixi/bin"
+    //},
     "mounts": ["source=${localWorkspaceFolderBasename}-pixi,target=${containerWorkspaceFolder}/.pixi,type=volume"],
     // https://containers.dev/implementors/json_reference/#formatting-string-vs-array-properties
     "postCreateCommand": {
         "set_permissions": "sudo chown vscode .pixi",
-        "install_global_tools": "pixi global install -e jupyterlab jupyterlab jupyterlab-myst pixi-kernel",
-        "install_repo_env": "pixi install"
+        // "install_global_tools": "pixi global install -e jupyterlab jupyterlab jupyterlab-myst pixi-kernel",
+        "install_pixi_environment": "pixi install"
     }
 }
