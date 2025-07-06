@@ -13,7 +13,8 @@
     },
 "features": {
     "ghcr.io/devcontainers/features/python:1": {
-        "toolsToInstall":"jupyterlab-myst,pixi-kernel",
+        "version":"3.12",
+        "toolsToInstall":"jupyterlab_myst,pixi-kernel",
         "installJupyterlab":true
     }
 },
