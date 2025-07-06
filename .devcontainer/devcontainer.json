@@ -14,7 +14,8 @@
 "features": {
     "ghcr.io/devcontainers/features/python:1": {
         "version":"3.12",
-        "toolsToInstall":"jupyterlab_myst,pixi-kernel",
+        "installTools": false,
+        // "toolsToInstall":"jupyterlab_myst,pixi-kernel",
         "installJupyterlab":true
     }
 },
@@ -25,8 +26,9 @@
     "mounts": ["source=${localWorkspaceFolderBasename}-pixi,target=${containerWorkspaceFolder}/.pixi,type=volume"],
     // https://containers.dev/implementors/json_reference/#formatting-string-vs-array-properties
     "postCreateCommand": {
-        "set_permissions": "sudo chown vscode .pixi",
+        "configure_jupyterlab": "pip install jupyterlab_myst pixi-kernel"
+        // "set_permissions": "sudo chown vscode .pixi",
         // "install_global_tools": "pixi global install -e jupyterlab jupyterlab jupyterlab-myst pixi-kernel",
-        "install_pixi_environment": "pixi install"
+        // "install_pixi_environment": "pixi install"
     }
 }
